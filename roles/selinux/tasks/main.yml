@@ -1,0 +1,6 @@
+---
+- name: install selinux library
+  dnf: name=libselinux-python state=installed
+
+- name: set selinux permissive
+  selinux: policy=targeted state=permissive

@@ -1,0 +1,3 @@
+---
+mysql_password: "{{ vault_mysql_password }}"
+wp_pwd: "{{ vault_wp_pwd }}"

@@ -1,0 +1,6 @@
+---
+- hosts: database
+  vars_files:
+  - roles/mysql/vars/vault_main.yml
+  roles:
+    - mysql

@@ -1,0 +1,9 @@
+---
+- name: set my.cnf
+  template: src=my.cnf.j2 dest=/root/.my.cnf mode=0400
+
+- name: create wordpress database
+  mysql_db: name=wordpress state=present
+
+- name: create wordpress user
+  mysql_user: name=wpuser password={{ wp_pwd }} priv=wordpress.*:ALL state=present

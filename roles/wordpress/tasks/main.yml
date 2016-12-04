@@ -1,0 +1,13 @@
+---
+- name: get the wordpress tar
+  get_url: url=https://wordpress.org/latest.tar.gz dest=/var/www/html
+
+- name: extract the tar
+  unarchive: src=/var/www/html/wordpress-4.6.1.tar.gz dest=/var/www/html copy=no owner=apache
+  notify:
+  - restart httpd
+
+- name: set the apache config
+  template: src=wordpress.conf.j2 dest=/etc/httpd/conf.d/wordpress.conf
+  notify:
+  - restart httpd
